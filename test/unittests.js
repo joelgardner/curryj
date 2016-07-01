@@ -103,24 +103,3 @@ function _3dcoords(x, y, z) {
 function _f4(a1, a2, a3, a4) {
   return _f3(a1, a2, a3) + ' and finally, 4: ' + a4;
 }
-
-
-
-//var curryj = require('curryj');
-
-var add = curryj.curry(function(a, b) {
-  return a + b;
-});
-
-var add3 = add(3);
-console.log(add3(7));    // 10
-
-var _3d = curryj.curry(function(x, y, z) {
-  return { x: x, y: y, z: z };
-});
-
-console.log(_3d(0, 1, 2));  // { x:0, y:1, z:2 }
-console.log(_3d(3)(4, 5));  // { x:3, y:4, z:5 }
-console.log(_3d(6, 7)(8));  // { x:6, y:7, z:8 }
-console.log(_3d(9)(0)(1));  // { x:9, y:0, z:1 }
-

@@ -35,14 +35,23 @@ describe('curryj library', function () {
   });
 
   it('should allow any combination of calls as long as all arguments are supplied', function () {
-    var four = curryj.curry(_f4);
-    var answer = 'the concat (or sum) of all these are : abc and finally, 4: d';
+    var four = curryj.curry(_f4),
+        answer = 'the concat (or sum) of all these are : abc and finally, 4: d';
     assert.equal(four('a', 'b', 'c', 'd'), answer);
     assert.equal(four('a')('b', 'c', 'd'), answer);
     assert.equal(four('a')('b', 'c')('d'), answer);
     assert.equal(four('a')('b')('c')('d'), answer);
     assert.equal(four('a', 'b')('c', 'd'), answer);
     assert.equal(four('a', 'b', 'c')('d'), answer);
+  });
+
+  it('what happens when you curry the curried?', function () {
+    var two = curryj.curry(_f2),
+        twoAgain = curryj.curry(two),
+        twoOnceMorePartiallyApplied123 = curryj.curry(twoAgain('123'));
+    assert.equal(two('x', 'y'), 'hello x and #2: y');
+    assert.equal(twoAgain('a', 'b'), 'hello a and #2: b');
+    assert.equal(twoOnceMorePartiallyApplied123('bbb'), 'hello 123 and #2: bbb');
   });
 });
 

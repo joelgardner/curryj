@@ -14,7 +14,7 @@ exports.curry = function(fn) {
   return function _curry(/* args */) {
     var args = Array.prototype.slice.call(arguments);
     if (args.length >= fn.length) return fn.apply(undefined, args);
-    for(var list = [], i = 0;i < args.length;++i) list.push(['args[', i ,']'].join(''));
-    return eval('_curry.bind(undefined, ' + list.join(",") + ')');
+    for(var list = [], i = 0;i < args.length;++i) list.push(['args[', i, ']'].join(''));
+    return eval('_curry.bind(undefined,' + list.join(',') + ')');
   }
 };

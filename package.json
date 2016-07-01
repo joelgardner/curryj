@@ -1,0 +1,24 @@
+{
+  "name": "curryj",
+  "version": "1.0.0",
+  "description": "A (very) simple currying library.",
+  "main": "curry.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "./node_modules/mocha/bin/mocha"
+  },
+  "keywords": [
+    "curryj",
+    "currying",
+    "javascript",
+    "functions"
+  ],
+  "author": "William Joel Gardner",
+  "license": "MIT",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^2.5.3"
+  }
+}
